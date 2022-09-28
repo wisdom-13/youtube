@@ -1,8 +1,8 @@
 import React from 'react';
 
-const MovieDetail = (props) => {
+const VideoDetail = (props) => {
   return (
     <p>content</p>
   );
 }
-export default MovieDetail;
+export default VideoDetail;
