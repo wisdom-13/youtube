@@ -8,27 +8,21 @@ function App() {
   const [videos, setVideos] = useState([]);
 
   useEffect(() => {
-    console.log("useEffect");
-
-    var requestOptions = {
+    const requestOptions = {
       method: 'GET',
       redirect: 'follow'
     };
 
-    var data = fetch("https://www.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&maxResulte=25&key=AIzaSyDLq9DSJ7ltjJD6k3MVuIYdycwTIP1t_Xk", requestOptions)
-      .then(response => response.text())
-      .then(result => console.log(result))
+    fetch("https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=샤이&key=AIzaSyDLq9DSJ7ltjJD6k3MVuIYdycwTIP1t_Xk", requestOptions)
+      .then(response => response.json())
+      .then(result => setVideos(result.items))
       .catch(error => console.log('error', error));
-
-    setVideos(data);
-
-
   }, [])
 
   return (
     <>
       <SearchHeader></SearchHeader>
-      <VideoList></VideoList>
+      <VideoList videos={videos}></VideoList>
       <VideoDetail></VideoDetail>
     </>
   );
