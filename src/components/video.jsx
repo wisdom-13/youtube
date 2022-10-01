@@ -1,10 +1,11 @@
 import React from 'react';
 
 const Video = (props) => {
-  console.log(props.video.snippet);
+  const data = props.video.snippet;
   return (
     <div>
-      <h3>{props.video.snippet.title}</h3>
+      <h3>{data.title}</h3>
+      <img src={data.thumbnails.default.url}></img>
     </div>
   );
 }
