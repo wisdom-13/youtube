@@ -17,9 +17,15 @@ function App() {
       redirect: 'follow'
     };
 
-    keyword = (keyword) ? keyword : "인기차트";
+    var href = "";
 
-    fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=${keyword}&key=AIzaSyDLq9DSJ7ltjJD6k3MVuIYdycwTIP1t_Xk`, requestOptions)
+    if (keyword) {
+      href = `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=${keyword}&key=AIzaSyDLq9DSJ7ltjJD6k3MVuIYdycwTIP1t_Xk`;
+    } else {
+      href = `https://www.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&maxResulte=25&key=AIzaSyDLq9DSJ7ltjJD6k3MVuIYdycwTIP1t_Xk`;
+    }
+
+    fetch(href, requestOptions)
       .then(response => response.json())
       .then(result => setVideos(result.items))
       .catch(error => console.log('error', error));
