@@ -33,10 +33,14 @@ function App() {
     console.log("loading");
   }
 
+  const handleDetail = (id) => {
+    console.log(id)
+  }
+
   return (
     <>
       <SearchHeader onSearch={loadData}></SearchHeader>
-      <VideoList videos={videos}></VideoList>
+      <VideoList videos={videos} onDetail={handleDetail}></VideoList>
       <VideoDetail></VideoDetail>
     </>
   );

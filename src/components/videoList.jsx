@@ -2,6 +2,11 @@ import React from 'react';
 import Video from './video';
 
 const VideoList = (props) => {
+
+  const handleDetail = (id) => {
+    props.onDetail(id);
+  }
+
   return (
     <>
       <ul>
@@ -10,6 +15,7 @@ const VideoList = (props) => {
             <Video
               key={video.id}
               video={video}
+              onDetail={handleDetail}
             >
             </Video>
           </li>
