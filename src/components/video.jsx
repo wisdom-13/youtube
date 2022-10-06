@@ -4,7 +4,7 @@ const Video = (props) => {
 
 
   const handleDetail = () => {
-    props.onDetail(props.video.id);
+    props.onDetail(props.id);
   };
 
   const data = props.video.snippet;

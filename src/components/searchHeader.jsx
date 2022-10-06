@@ -9,9 +9,13 @@ const SearchHeader = (props) => {
     keyword && props.onSearch(keyword);
   }
 
+  const onResetKeyword = () => {
+    props.onResetKeyword();
+  }
+
   return (
     <nav>
-      <div className="logo">YOUTUBE</div>
+      <div className="logo" onClick={onResetKeyword}>YOUTUBE</div>
       <form className="searchBox" onSubmit={onSubmit}>
         <input ref={inputRef} type="text" placeholder="search" />
         <button>검색</button>

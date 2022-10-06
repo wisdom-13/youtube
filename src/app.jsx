@@ -6,6 +6,8 @@ import SearchHeader from './components/searchHeader';
 
 function App() {
   const [videos, setVideos] = useState([]);
+  const [keyword, setKeyword] = useState();
+  const [id, setId] = useState();
 
   useEffect(() => {
     loadData();
@@ -30,18 +32,24 @@ function App() {
       .then(result => setVideos(result.items))
       .catch(error => console.log('error', error));
 
-    console.log("loading");
+    setId("");
+    setKeyword(keyword);
   }
 
   const handleDetail = (id) => {
-    console.log(id)
+    setId(id);
+  }
+
+  const resetKeyword = () => {
+    setId("");
+    setKeyword("");
   }
 
   return (
     <>
-      <SearchHeader onSearch={loadData}></SearchHeader>
-      <VideoList videos={videos} onDetail={handleDetail}></VideoList>
-      <VideoDetail></VideoDetail>
+      <SearchHeader onSearch={loadData} onResetKeyword={resetKeyword}></SearchHeader>
+      <VideoDetail id={id}></VideoDetail>
+      <VideoList videos={videos} keyword={keyword} onDetail={handleDetail}></VideoList>
     </>
   );
 }
