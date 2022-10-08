@@ -1,5 +1,6 @@
 import React from 'react';
 import Video from './video';
+import styles from './video.module.css';
 
 const VideoList = (props) => {
 
@@ -9,17 +10,15 @@ const VideoList = (props) => {
 
   return (
     <>
-      <ul>
+      <ul className={styles.videos}>
         {props.videos.map(video => (
-          <li>
-            <Video
-              key={video.id}
-              id={(props.keyword) ? video.id.videoId : video.id}
-              video={video}
-              onDetail={handleDetail}
-            >
-            </Video>
-          </li>
+          <Video
+            key={video.id}
+            id={(props.keyword) ? video.id.videoId : video.id}
+            video={video}
+            onDetail={handleDetail}
+          >
+          </Video>
         ))}
       </ul>
     </>
