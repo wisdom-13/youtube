@@ -1,4 +1,5 @@
 import React, { useRef } from 'react';
+import styles from './video.module.css';
 
 const SearchHeader = (props) => {
   const inputRef = useRef();
@@ -14,10 +15,10 @@ const SearchHeader = (props) => {
   }
 
   return (
-    <nav>
-      <div className="logo" onClick={onResetKeyword}>YOUTUBE</div>
-      <form className="searchBox" onSubmit={onSubmit}>
-        <input ref={inputRef} type="text" placeholder="search" />
+    <nav className={styles.nav}>
+      <div className={styles.logo} onClick={onResetKeyword}>YOUTUBE</div>
+      <form className={styles.searchBox} onSubmit={onSubmit}>
+        <input ref={inputRef} type="text" placeholder="검색" />
         <button>검색</button>
       </form>
     </nav>

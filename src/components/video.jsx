@@ -12,10 +12,13 @@ const Video = (props) => {
 
   return (
     <li className={styles.video} onClick={handleDetail}>
-      <img className={styles.thumbnails} src={data.thumbnails.default.url}></img>
+      <div className={styles.thumbnailsBox}>
+        <img className={styles.thumbnails} src={data.thumbnails.medium.url}></img>
+      </div>
       <div className={styles.info}>
         <h3 className={styles.title}>{data.title}</h3>
-        <p className={styles.channel}>{data.channelTitle}</p>
+        <p className={styles.text}>{data.channelTitle}</p>
+        <p className={styles.text}>{data.publishedAt}</p>
       </div>
     </li>
   );

@@ -1,17 +1,49 @@
+.nav {
+    padding: 1em 2em;
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 10%;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1.4em;
+    text-align: center;
+}
+.searchBox {
+    width: 90%;
+    text-align: center;
+    margin-left: -5%;
+}
+.searchBox input {
+    width: 500px;
+    border: #ccc 1px solid;
+    padding: 10px;
+}
+
+.searchBox button {
+    width: 100px;
+    height: 37.5px;
+    margin-top: -1px;
+    margin-left: -1px;
+    border: #ccc 1px solid;
+}
+
 .videos {
     display: flex;
     flex-wrap: wrap;
     list-style: none;
     padding-left: 0;
+    padding: 2em;
+    background: #f9f9f9;
+    margin-top: 0;
 }
 
 .video {
-    width: 50%;
-    display: flex;
+    width: 23%;
     align-items: center;
-    border: 1px solid #eee;
-    margin-bottom: .2em;
-    padding: 0;
+    margin: 1em .8em;
     transition: transform 150ms ease-in;
     cursor: pointer;
     box-sizing: border-box;
@@ -21,15 +53,29 @@
     transform: scale(1.01);
 }
 
+.thumbnailsBox {
+    width: 100%;
+    height: 172px;
+    overflow: hidden;
+}
+
+.thumbnails {
+    width: 100%;
+}
+
 .info {
-    padding-left: 10px;
+    padding-top: 10px;
 }
 
-.title,
-.channel {
+.title {
+    font-size: .8em;
     margin: 0;
+    margin-bottom: 6px;
 }
 
-.channel {
-
+.text {
+    color: #333;
+    margin: 0;
+    font-size: .7em;
+    margin-bottom: 2px;
 }
