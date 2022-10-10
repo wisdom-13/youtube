@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import './app.css';
 import VideoDetail from './components/videoDetail';
-import VideoList from './components/videoList';
-import SearchHeader from './components/searchHeader';
+import VideoList from './components/videoList/videoList';
+import SearchHeader from './components/searchHeader/searchHeader';
 
 function App() {
   const [videos, setVideos] = useState([]);

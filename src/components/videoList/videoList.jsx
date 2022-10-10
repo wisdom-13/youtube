@@ -1,6 +1,6 @@
 import React from 'react';
-import Video from './video';
-import styles from './video.module.css';
+import Video from '../video/video';
+import styles from '../videoList/videoList.module.css';
 
 const VideoList = (props) => {
 

@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import styles from './video.module.css';
+import styles from './searchHeader.module.css';
 
 const SearchHeader = (props) => {
   const inputRef = useRef();
