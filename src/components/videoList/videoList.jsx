@@ -14,7 +14,7 @@ const VideoList = (props) => {
         {props.videos.map(video => (
           <Video
             key={video.id}
-            id={(props.keyword) ? video.id.videoId : video.id}
+            id={video.id}
             video={video}
             onDetail={handleDetail}
           >

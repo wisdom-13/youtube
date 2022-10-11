@@ -29,7 +29,8 @@ function App() {
 
     fetch(href, requestOptions)
       .then(response => response.json())
-      .then(result => setVideos(result.items))
+      .then(result => (keyword) ? result.items.map(item => ({ ...item, id: item.id.videosId })) : result.items)
+      .then(items => setVideos(items))
       .catch(error => console.log('error', error));
 
     setId("");
@@ -48,7 +49,7 @@ function App() {
   return (
     <>
       <SearchHeader onSearch={loadData} onResetKeyword={resetKeyword}></SearchHeader>
-      <VideoDetail id={id}></VideoDetail>
+      {/* <VideoDetail id={id}></VideoDetail> */}
       <VideoList videos={videos} keyword={keyword} onDetail={handleDetail}></VideoList>
     </>
   );
