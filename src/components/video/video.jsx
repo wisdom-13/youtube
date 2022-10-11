@@ -9,7 +9,7 @@ const Video = (props) => {
   };
 
   const data = props.video.snippet;
-
+  console.log(props)
   return (
     <li className={styles.video} onClick={handleDetail}>
       <div className={styles.thumbnailsBox}>

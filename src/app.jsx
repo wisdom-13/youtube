@@ -4,37 +4,23 @@ import VideoDetail from './components/videoDetail';
 import VideoList from './components/videoList/videoList';
 import SearchHeader from './components/searchHeader/searchHeader';
 
-function App() {
+function App({ youtube }) {
   const [videos, setVideos] = useState([]);
   const [keyword, setKeyword] = useState();
   const [id, setId] = useState();
 
   useEffect(() => {
-    loadData();
+    youtube
+      .mostPopular(keyword)
+      .then(videos => setVideos(videos));
   }, [])
 
   const loadData = (keyword) => {
-    const requestOptions = {
-      method: 'GET',
-      redirect: 'follow'
-    };
-
-    var href = "";
-
-    if (keyword) {
-      href = `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=${keyword}&key=AIzaSyDLq9DSJ7ltjJD6k3MVuIYdycwTIP1t_Xk`;
-    } else {
-      href = `https://www.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&maxResulte=25&key=AIzaSyDLq9DSJ7ltjJD6k3MVuIYdycwTIP1t_Xk`;
-    }
-
-    fetch(href, requestOptions)
-      .then(response => response.json())
-      .then(result => (keyword) ? result.items.map(item => ({ ...item, id: item.id.videosId })) : result.items)
-      .then(items => setVideos(items))
-      .catch(error => console.log('error', error));
-
-    setId("");
-    setKeyword(keyword);
+    youtube
+      .search(keyword)
+      .then(videos => setVideos(videos))
+    // setId("");
+    // setKeyword(keyword);
   }
 
   const handleDetail = (id) => {
