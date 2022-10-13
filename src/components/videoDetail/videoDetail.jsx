@@ -8,11 +8,18 @@ const VideoDetail = ({ video, video: { snippet } }) => {
 
   return (
     <>
-      <iframe type="text/html" width="720" height="405" src={src}
-        frameborder="0" allowfullscreen></iframe>
-      <h2>{snippet.title}</h2>
-      <h3>{snippet.channelTitle}</h3>
-      <p>{snippet.description}</p>
+      <div className={styles.videoDetail}>
+        <div>
+          <iframe type="text/html" width="720" height="405" src={src}
+            frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div className={styles.videoInfo}>
+          <h2>{snippet.title}</h2>
+          <p>{snippet.channelTitle}</p>
+          <hr></hr>
+          <pre>{snippet.description}</pre>
+        </div>
+      </div>
     </>
   );
 

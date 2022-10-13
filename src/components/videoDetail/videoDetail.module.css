@@ -1,0 +1,29 @@
+.videoDetail {
+	display: flex;
+	list-style: none;
+	padding-left: 0;
+	padding: 2.8em;
+	margin-top: 0;
+}
+
+.videoInfo {
+	padding-left: 1.8rem;
+}
+
+
+.videoInfo p {
+	font-size: 1rem;
+	color: #666;
+}
+
+.videoInfo hr {
+	margin: 20px 0;
+}
+
+.videoInfo pre {
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+	white-space: pre-wrap;
+	font-size: .8rem;
+	height: 260px;
+	overflow: scroll;
+}

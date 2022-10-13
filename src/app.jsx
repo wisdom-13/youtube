@@ -19,8 +19,7 @@ function App({ youtube }) {
     youtube
       .search(keyword)
       .then(videos => setVideos(videos))
-    // setId("");
-    // setKeyword(keyword);
+    setSelectedVideo("");
   }
 
   const handleDetail = (video) => {
