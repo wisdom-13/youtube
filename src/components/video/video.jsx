@@ -1,24 +1,17 @@
 import React from 'react';
 import styles from './video.module.css';
 
-const Video = (props) => {
+const Video = ({ video, video: { snippet }, onDetail }) => {
 
-
-  const handleDetail = () => {
-    props.onDetail(props.id);
-  };
-
-  const data = props.video.snippet;
-  console.log(props)
   return (
-    <li className={styles.video} onClick={handleDetail}>
+    <li className={styles.video} onClick={() => onDetail(video)}>
       <div className={styles.thumbnailsBox}>
-        <img className={styles.thumbnails} src={data.thumbnails.medium.url}></img>
+        <img className={styles.thumbnails} src={snippet.thumbnails.medium.url}></img>
       </div>
       <div className={styles.info}>
-        <h3 className={styles.title}>{data.title}</h3>
-        <p className={styles.text}>{data.channelTitle}</p>
-        <p className={styles.text}>{data.publishedAt}</p>
+        <h3 className={styles.title}>{snippet.title}</h3>
+        <p className={styles.text}>{snippet.channelTitle}</p>
+        <p className={styles.text}>{snippet.publishedAt}</p>
       </div>
     </li>
   );

@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react';
 import './app.css';
-import VideoDetail from './components/videoDetail';
+import VideoDetail from './components/videoDetail/videoDetail';
 import VideoList from './components/videoList/videoList';
 import SearchHeader from './components/searchHeader/searchHeader';
 
 function App({ youtube }) {
   const [videos, setVideos] = useState([]);
   const [keyword, setKeyword] = useState();
-  const [id, setId] = useState();
+  const [selectedVideo, setSelectedVideo] = useState();
 
   useEffect(() => {
     youtube
@@ -23,19 +23,19 @@ function App({ youtube }) {
     // setKeyword(keyword);
   }
 
-  const handleDetail = (id) => {
-    setId(id);
+  const handleDetail = (video) => {
+    setSelectedVideo(video);
   }
 
   const resetKeyword = () => {
-    setId("");
+    setSelectedVideo("");
     setKeyword("");
   }
 
   return (
     <>
       <SearchHeader onSearch={loadData} onResetKeyword={resetKeyword}></SearchHeader>
-      {/* <VideoDetail id={id}></VideoDetail> */}
+      {selectedVideo && <VideoDetail video={selectedVideo}></VideoDetail>}
       <VideoList videos={videos} keyword={keyword} onDetail={handleDetail}></VideoList>
     </>
   );
