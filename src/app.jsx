@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState, useRef, useCallback } from 'react';
 import './app.css';
 import VideoDetail from './components/videoDetail/videoDetail';
 import VideoList from './components/videoList/videoList';
@@ -17,14 +17,14 @@ function App({ youtube }) {
       .then(videos => setVideos(videos));
   }, [youtube])
 
-  const loadData = (keyword) => {
+  const loadData = useCallback((keyword) => {
     youtube
       .search(keyword)
       .then(videos => {
         setVideos(videos);
         setSelectedVideo(null);
       })
-  }
+  }, [youtube])
 
   const handleDetail = (video) => {
     setSelectedVideo(video);
