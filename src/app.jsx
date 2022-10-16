@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import './app.css';
 import VideoDetail from './components/videoDetail/videoDetail';
 import VideoList from './components/videoList/videoList';
@@ -9,17 +9,21 @@ function App({ youtube }) {
   const [keyword, setKeyword] = useState();
   const [selectedVideo, setSelectedVideo] = useState();
 
+  const inputRef = useRef();
+
   useEffect(() => {
     youtube
       .mostPopular(keyword)
       .then(videos => setVideos(videos));
-  }, [])
+  }, [youtube])
 
   const loadData = (keyword) => {
     youtube
       .search(keyword)
-      .then(videos => setVideos(videos))
-    setSelectedVideo("");
+      .then(videos => {
+        setVideos(videos);
+        setSelectedVideo(null);
+      })
   }
 
   const handleDetail = (video) => {
@@ -27,13 +31,18 @@ function App({ youtube }) {
   }
 
   const resetKeyword = () => {
-    setSelectedVideo("");
-    setKeyword("");
+    youtube
+      .search(null)
+      .then(videos => {
+        setVideos(videos);
+        setSelectedVideo(null);
+        inputRef.current.value = "";
+      })
   }
 
   return (
     <>
-      <SearchHeader onSearch={loadData} onResetKeyword={resetKeyword}></SearchHeader>
+      <SearchHeader inputRef={inputRef} onSearch={loadData} onResetKeyword={resetKeyword}></SearchHeader>
       {selectedVideo && <VideoDetail video={selectedVideo}></VideoDetail>}
       <VideoList videos={videos} keyword={keyword} onDetail={handleDetail}></VideoList>
     </>

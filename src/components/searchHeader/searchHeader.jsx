@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 import styles from './searchHeader.module.css';
 
 const SearchHeader = (props) => {
-  const inputRef = useRef();
+  const inputRef = props.inputRef;
 
   const onSubmit = (event) => {
     event.preventDefault();

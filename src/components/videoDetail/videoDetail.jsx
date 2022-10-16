@@ -10,8 +10,10 @@ const VideoDetail = ({ video, video: { snippet } }) => {
     <>
       <div className={styles.videoDetail}>
         <div>
-          <iframe type="text/html" width="720" height="405" src={src}
-            frameborder="0" allowfullscreen></iframe>
+          <iframe type="text/html" width="720" height="405"
+            title="youtube video player"
+            src={src}
+            frameBorder="0" allowFullScreen></iframe>
         </div>
         <div className={styles.videoInfo}>
           <h2>{snippet.title}</h2>
