@@ -10,8 +10,8 @@ const VideoDetail = memo(
     return (
       <>
         <div className={styles.videoDetail}>
-          <div>
-            <iframe type="text/html" width="720" height="405"
+          <div className={styles.videoBox}>
+            <iframe type="text/html" width="100%" height="400px"
               title="youtube video player"
               src={src}
               frameBorder="0" allowFullScreen></iframe>
