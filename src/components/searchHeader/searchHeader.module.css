@@ -5,29 +5,55 @@
 }
 
 .logo {
-    width: 10%;
+    width: 40%;
     cursor: pointer;
     font-weight: bold;
     font-size: 1.4em;
     text-align: center;
+    text-align: left;
 }
 
 .searchBox {
-    width: 90%;
+    width: 60%;
     text-align: center;
-    margin-left: -5%;
 }
 
 .searchBox input {
-    width: 500px;
+    width: 90%;
     border: #ccc 1px solid;
     padding: 10px;
 }
 
 .searchBox button {
-    width: 100px;
+    width: 10%;
     height: 37.5px;
     margin-top: -1px;
     margin-left: -1px;
     border: #ccc 1px solid;
+}
+
+
+@media screen and (max-width: 60rem) {
+    .nav {
+        justify-content: space-between;
+    }
+    .searchBox {
+        text-align: right;
+        margin-left: 0;
+    }
+}
+
+@media screen and (max-width: 48rem) {
+    .logo {
+        display: none;
+    }
+    .searchBox {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 32rem) {
+    .video {
+        width: 100%;
+    }
 }
